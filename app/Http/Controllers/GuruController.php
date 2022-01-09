@@ -41,14 +41,18 @@ class GuruController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'           => 'required',
-            'nip'           => 'nullable|unique:gurus,nip,',
-            'jeniskelamin'   => 'required',
-            'mapel_id'         => 'required',
-            'nuptk'           => 'nullable|unique:gurus,nuptk',
-            'tempatlahir'    => 'required',
-            'tanggallahir'   => 'required|date',
-            'email'          => 'required|unique:gurus,email', 
+            'nama'               => 'required',
+            'nip'                => 'nullable|unique:gurus,nip,',
+            'jeniskelamin'       => 'required',
+            'mapel_id'           => 'required',
+            'nuptk'              => 'nullable|unique:gurus,nuptk',
+            'tempatlahir'        => 'required',
+            'tanggallahir'       => 'required|date',
+            'statuskepegawaian'  => 'required',
+            'jenjang'            => 'required',
+            'jurusan'            => 'required',
+            'sertifikasi'        => 'required',
+            'email'              => 'required|unique:gurus,email', 
         ]);
 
         $user = new User;
@@ -98,15 +102,19 @@ class GuruController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama'           => 'required',
-            'nip'            => 'nullable|unique:gurus,nip,'.$id,
-            'jeniskelamin'   => 'required',
-            'mapel_id'        => 'required',
-            'nuptk'          => 'nullable|unique:gurus,nuptk,'.$id,
-            'tempatlahir'    => 'required',
-            'tanggallahir'   => 'required|date',
-            'email'          => 'required|unique:gurus,email,'.$id,
-            'avatar'         => 'mimes:jpeg,png,jpg',  
+            'nama'               => 'required',
+            'nip'                => 'nullable|unique:gurus,nip,'.$id,
+            'jeniskelamin'       => 'required',
+            'mapel_id'           => 'required',
+            'nuptk'              => 'nullable|unique:gurus,nuptk,'.$id,
+            'tempatlahir'        => 'required',
+            'tanggallahir'       => 'required|date',
+            'statuskepegawaian'  => 'required',
+            'jenjang'            => 'required',
+            'jurusan'            => 'required',
+            'sertifikasi'        => 'required',
+            'email'              => 'required|unique:gurus,email,'.$id,
+            'avatar'             => 'mimes:jpeg,png,jpg',  
         ]);
 
         $guru = Guru::find($id);

@@ -2,8 +2,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <img src="{{ asset('assets/img/logo.png') }}" style="width: 40px; height: 40px" alt="">
+        <div class="sidebar-brand-icon">
+            <img src="{{ asset('assets/img/logo.png') }}" style="width: 50px; height: 50px" alt="">
         </div>
         <div class="sidebar-brand-text mx-3">  SIAKAD</div>
     </a>

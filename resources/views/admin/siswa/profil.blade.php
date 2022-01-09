@@ -37,6 +37,27 @@
                             <li class="list-group-item">
                                 <b>Kelas</b> <span class="float-right text-capitalize">{{ $siswa->kelas->namakelas}}</span>
                             </li>
+                            <li class="list-group-item">
+                                <b>Nama Ayah</b> <span class="float-right text-capitalize">{{ $siswa->ayah}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Nama Ibu</b> <span class="float-right text-capitalize">{{ $siswa->ibu}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Pekerjaan Ayah</b> <span class="float-right text-capitalize">{{ $siswa->pekerjaanayah}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Pekerjaan Ibu</b> <span class="float-right text-capitalize">{{ $siswa->pekerjaanibu}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Alamat</b> <span class="float-right text-capitalize">{{ $siswa->alamat}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>HP</b> <span class="float-right text-capitalize">{{ $siswa->hp}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Asal Sekolah</b> <span class="float-right text-capitalize">{{ $siswa->sekolah}}</span>
+                            </li>
                         </div>
                         <!-- /.card-body -->
                     </div>

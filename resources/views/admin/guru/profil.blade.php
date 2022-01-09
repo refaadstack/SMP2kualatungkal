@@ -4,7 +4,7 @@
     <div class="content ml-4">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
@@ -15,7 +15,7 @@
                 
                         <p class="text-muted text-center">{{ $guru->email}}</p>
                 
-                        <ul class="list-group list-group-unbordered mb-6">
+                        <ul class="list-group list-group-unbordered mb-12">
                             <li class="list-group-item">
                             <b>Tempat Lahir</b> <span class="float-right text-capitalize">{{ $guru->tempatlahir }}</span>
                             </li>
@@ -30,6 +30,18 @@
                             </li>
                             <li class="list-group-item">
                             <b>Jenis Kelamin</b> <span class="float-right text-capitalize">{{ $guru->jeniskelamin }}</span>
+                            </li>
+                            <li class="list-group-item">
+                            <b>Status Kepegawaian</b> <span class="float-right text-capitalize">{{ $guru->statuskepegawaian }}</span>
+                            </li>
+                            <li class="list-group-item">
+                            <b>Jenjang</b> <span class="float-right text-capitalize">{{ $guru->jenjang }}</span>
+                            </li>
+                            <li class="list-group-item">
+                            <b>Jurusan</b> <span class="float-right text-capitalize">{{ $guru->jurusan }}</span>
+                            </li>
+                            <li class="list-group-item">
+                            <b>Sertifikasi</b> <span class="float-right text-capitalize">{{ $guru->sertifikasi }}</span>
                             </li>
                         </div>
                         <!-- /.card-body -->

@@ -137,7 +137,7 @@
             <div class="d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
               <h1 class="title-text-big">
                 Selamat Datang<br class="d-lg-block d-none" />
-                di SIAKAD SMKN SPP Merangin
+                di SIAKAD SMP Negeri 2 <br/> Kuala Tungkal
               </h1>
             </div>
           </div>
@@ -149,10 +149,7 @@
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active justify-content-center">
-                <img src="{{ asset('images/img.jpeg') }}" class="d-block w-100" style="max-width: 1500px; width: 100%; height: 450px" alt="..." />
-              </div>
-              <div class="carousel-item">
-                <img src="{{ asset('images/img1.jpeg') }}" class="d-block w-100" style="max-width: 1500px; width: 100%; height: 450px" alt="..." />
+                <img src="{{ asset('images/img1.jpg') }}" class="d-block w-100" style="max-width: 1500px; width: 100%; height: 500px" alt="..." />
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -170,10 +167,8 @@
           <!-- Left Column -->
           <div class="left-column d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
             <h1 class="title-text-big">
-              Program Studi<br class="d-lg-block d-none" />
-              <h5 class="text-white">1. Agribisnis Tanaman Pangan dan Holtikultura (Akreditasi A)</h5>
-              <br />
-              <h5 class="text-white">2. Agribisnis Tanaman Perkebunan (Akreditasi A)</h5>
+          
+              
             </h1>
           </div>
           <!-- Right Column -->
@@ -185,7 +180,7 @@
     <section class="h-100 w-100" style="box-sizing: border-box; background-color:#8a0b20">
       <div class="footer-2-3 container-xxl mx-auto position-relative p-0" style="font-family: 'Poppins', sans-serif">
         <div class="text-center">
-          <h5 class="text-light">Copyright &copy; SMK N SPP Merangin</h5>
+          <h5 class="text-light">Copyright &copy; SMP NEGERI 2 KUALA TUNGKAL</h5>
         </div>
         <br />
       </div>

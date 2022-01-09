@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 text-gray-800">Data Siswa SMK N SPP Merangin</h1>
+    <h1 class="h3 text-gray-800">Data Siswa SMP Negeri 2 Kuala Tungkal</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -22,7 +22,7 @@
                         <tr>
                             <th class="text-center">No</th>
                             <th>Nama</th>
-                            <th>NIPD</th>
+                            <th>NIS</th>
                             <th>Jenis Kelamin</th>
                             <th>NISN</th>
                             <th>Tempat Lahir</th>
@@ -37,7 +37,7 @@
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
                             <td class="text-capitalize"><a href="{{ route('siswa.profile',$siswa->id) }}">{{ $siswa->nama }}</a></td>
-                            <td>{{ $siswa->nipd }}</td>
+                            <td>{{ $siswa->nis}}</td>
                             <td>{{ $siswa->jeniskelamin }}</td>
                             <td>{{ $siswa->nisn }}</td>
                             <td class="text-capitalize">{{ $siswa->tempatlahir }}</td>
@@ -72,10 +72,10 @@
                                           <div class="invalid-feedback">Nama tidak boleh kosong!</div>
                                         </div>
                                         <div class="form-group">
-                                          <label for="nipd">NIPD</label>
-                                          <input type="number" class="form-control" placeholder="Masukkan NIPD" name="nipd" value="{{ $siswa->nipd }}" required>
+                                          <label for="nis">NIS</label>
+                                          <input type="number" class="form-control" placeholder="Masukkan NIS" name="nis" value="{{ $siswa->nis }}" required>
                                           <div class="valid-feedback">Valid.</div>
-                                          <div class="invalid-feedback">NIPD tidak boleh kosong!</div>
+                                          <div class="invalid-feedback">NIS tidak boleh kosong!</div>
                                         </div>
                                         <div class="form-group">
                                             <label for="jeniskelamin">Jenis Kelamin</label>
@@ -129,6 +129,48 @@
                                           </select> 
                                           <div class="valid-feedback">Valid.</div>
                                           <div class="invalid-feedback">Kelas tidak boleh kosong!</div>
+                                        </div>
+                                      <div class="form-group">
+                                            <label for="sekolah">Asal sekolah</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan asal sekolah" name="sekolah" value="{{ $siswa->sekolah }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">sekolah tidak boleh kosong! Format sekolah salah!</div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label for="ayah">Ayah</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan nama ayah" name="ayah" value="{{ $siswa->ayah }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">nama ayah tidak boleh kosong! Format nama ayah salah!</div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label for="ibu">Ibu</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan nama ibu" name="ibu" value="{{ $siswa->ibu }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">nama ibu tidak boleh kosong! Format nama ibu salah!</div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label for="pekerjaanayah">Pekerjaan ayah</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan pekerjaan ayah" name="pekerjaanayah" value="{{ $siswa->pekerjaanayah }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">pekerjaan ayah tidak boleh kosong! Format pekerjaan ayah salah!</div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label for="pekerjaanibu">Pekerjaan ibu</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan pekerjaan ibu" name="pekerjaanibu" value="{{ $siswa->pekerjaanibu }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">pekerjaan ibu tidak boleh kosong! Format pekerjaan ibu salah!</div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label for="alamat">alamat</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan alamat" name="alamat" value="{{ $siswa->alamat }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">alamat tidak boleh kosong! Format alamat salah!</div>
+                                      </div>
+                                      <div class="form-group">
+                                            <label for="hp">hp</label>
+                                            <input type="text" class="form-control"  placeholder="Masukkan nomor hp" name="hp" value="{{ $siswa->hp }}" required>
+                                            <div class="valid-feedback">Valid.</div>
+                                            <div class="invalid-feedback">nomor hp tidak boleh kosong! Format nomor hp salah!</div>
                                       </div>
                                         <div class="form-group">
                                             <label for="email">E-Mail</label>
@@ -203,10 +245,10 @@
                                       <div class="invalid-feedback">Nama tidak boleh kosong!</div>
                                     </div>
                                     <div class="form-group">
-                                      <label for="nipd">NIPD</label>
-                                      <input type="number" class="form-control" placeholder="Masukkan NIPD" name="nipd" required>
+                                      <label for="nis">NIS</label>
+                                      <input type="number" class="form-control" placeholder="Masukkan NIS" name="nis" required>
                                       <div class="valid-feedback">Valid.</div>
-                                      <div class="invalid-feedback">NIPD tidak boleh kosong!</div>
+                                      <div class="invalid-feedback">NIS tidak boleh kosong!</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="jeniskelamin">Jenis Kelamin</label>
@@ -262,12 +304,54 @@
                                       <div class="valid-feedback">Valid.</div>
                                       <div class="invalid-feedback">Kelas tidak boleh kosong!</div>
                                   </div>
-                                    <div class="form-group">
-                                        <label for="email">E-Mail</label>
-                                        <input type="email" class="form-control"  placeholder="Masukkan Email" name="email" required>
+                                  <div class="form-group">
+                                      <label for="sekolah">Asal sekolah</label>
+                                      <input type="text" class="form-control"  placeholder="Masukkan asal sekolah" name="sekolah" required>
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">sekolah tidak boleh kosong! Format sekolah salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="ayah">Ayah</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan nama ayah" name="ayah" required>
                                         <div class="valid-feedback">Valid.</div>
-                                        <div class="invalid-feedback">e-mail tidak boleh kosong! Format e-mail salah!</div>
-                                    </div>
+                                        <div class="invalid-feedback">nama ayah tidak boleh kosong! Format nama ayah salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="ibu">Ibu</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan nama ibu" name="ibu" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">nama ibu tidak boleh kosong! Format nama ibu salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="pekerjaanayah">Pekerjaan ayah</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan pekerjaan ayah" name="pekerjaanayah" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">pekerjaan ayah tidak boleh kosong! Format pekerjaan ayah salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="pekerjaanibu">Pekerjaan ibu</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan pekerjaan ibu" name="pekerjaanibu" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">pekerjaan ibu tidak boleh kosong! Format pekerjaan ibu salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="alamat">alamat</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan alamat" name="alamat" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">alamat tidak boleh kosong! Format alamat salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                        <label for="hp">hp</label>
+                                        <input type="text" class="form-control"  placeholder="Masukkan nomor hp" name="hp" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">nomor hp tidak boleh kosong! Format nomor hp salah!</div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="email">E-Mail</label>
+                                      <input type="email" class="form-control"  placeholder="Masukkan Email" name="email" required>
+                                      <div class="valid-feedback">Valid.</div>
+                                      <div class="invalid-feedback">e-mail tidak boleh kosong! Format e-mail salah!</div>
+                                  </div>
                                     
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                   </form>

@@ -7,7 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 class Siswa extends Model
 {
     protected $fillable = [
-        'user_id','nama', 'avatar','nis', 'jeniskelamin','nisn','tempatlahir','tanggallahir','agama','email','kelas_id',
+        'user_id',
+        'nama', 
+        'avatar',
+        'nis', 
+        'jeniskelamin',
+        'nisn',
+        'tempatlahir',
+        'tanggallahir',
+        'agama',
+        'sekolah',
+        'ayah',
+        'ibu',
+        'pekerjaanayah',
+        'pekerjaanibu',
+        'alamat',
+        'hp',
+        'email',
+        'kelas_id',
     ];
 
     public function getAvatar(){

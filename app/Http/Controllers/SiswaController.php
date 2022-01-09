@@ -49,13 +49,20 @@ class SiswaController extends Controller
     {
         $request->validate([
             'nama'           => 'required',
-            'nipd'           => 'required|unique:siswas,nipd',
+            'nis'           => 'required|unique:siswas,nis',
             'jeniskelamin'   => 'required',
             'nisn'           => 'required|unique:siswas,nisn',
             'tempatlahir'    => 'required',
             'tanggallahir'   => 'required|date',
             'agama'          => 'required',
             'kelas_id'       => 'required',
+            'sekolah'        => 'required',
+            'ayah'           => 'required',
+            'ibu'            => 'required',
+            'pekerjaanayah'  => 'required',
+            'pekerjaanibu'   => 'required',
+            'alamat'         => 'required',
+            'hp'             => 'required',
             'email'          => 'required|unique:siswas,email',
         ]);
 
@@ -142,12 +149,20 @@ class SiswaController extends Controller
     {
         $request->validate([
             'nama'           => 'required',
-            'nipd'           => 'required|unique:siswas,nipd,'.$id,
+            'nis'            => 'required|unique:siswas,nis,'.$id,
             'jeniskelamin'   => 'required',
             'nisn'           => 'required|unique:siswas,nisn,'.$id,
             'tempatlahir'    => 'required',
             'tanggallahir'   => 'required|date',
             'agama'          => 'required',
+            'kelas_id'       => 'required',
+            'sekolah'        => 'required',
+            'ayah'           => 'required',
+            'ibu'            => 'required',
+            'pekerjaanayah'  => 'required',
+            'pekerjaanibu'   => 'required',
+            'alamat'         => 'required',
+            'hp'             => 'required',
             'email'          => 'required|unique:siswas,email,'.$id,
             'avatar'         => 'mimes:jpeg,png,jpg',
         ]);

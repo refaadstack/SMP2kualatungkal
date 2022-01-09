@@ -15,16 +15,16 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'role' =>'admin',
-            'name' => 'Redho Fadillah Adha',
-            'email' => 'Redho@gmail.com',
-            'password' => bcrypt('redhoredho'),
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('adminadmin'),
             'remember_token' => Str::random(60),
         ]);
         DB::table('users')->insert([
             'role' =>'siswa',
-            'name' => 'Melsy Septiani Barlin',
-            'email' => 'Melsy@gmail.com',
-            'password' => bcrypt('melsymelsy'),
+            'name' => 'siswa',
+            'email' => 'siswa@gmail.com',
+            'password' => bcrypt('siswasiswa'),
             'remember_token' => Str::random(60),
         ]);
         
