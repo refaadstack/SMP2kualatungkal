@@ -23,6 +23,10 @@ class CreateGurusTable extends Migration
             $table->string('jeniskelamin');
             $table->string('tempatlahir');
             $table->date('tanggallahir');
+            $table->string('statuskepegawaian');
+            $table->string('jenjang');
+            $table->string('jurusan');
+            $table->string('sertifikasi')->nullable();
             $table->string('email')->nullable();
             $table->timestamps();
         });
