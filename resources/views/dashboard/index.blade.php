@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Dashboard | SMKN SPP MERANGIN')
+@section('title', 'Dashboard | SMP N 2 Kuala Tungkal')
 @section('content')
     <div class="container-fluid">
         <h5 style="margin-bottom: 3rem">Selamat datang <i class="text-capitalize">{{ Auth::user()->name }}</i></h5>

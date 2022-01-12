@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@yield('title','SIAKAD SMK N SPP')</title>
+    <title>@yield('title','SIAKAD SMP N 2 Kuala Tungkal')</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('') }}assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
