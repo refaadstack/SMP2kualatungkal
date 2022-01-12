@@ -34,13 +34,13 @@
 	</style>
             <table width="100%">
                 <tr>
-                {{--  <td width="50px" align="left"><img src="{{ asset('images/logo_diknas.png') }}" width="100%"></td>  --}}
+                 <td width="50px" align="left"><img src="{{ asset('images/logo_diknas.png') }}" width="100%"></td> 
                 <td width="100px" align="center">
                     <h5>Dinas Pendidikan Kabupaten Tanjung Jabung Barat</h5>
                     <h6>SMP Negeri 02 Kuala Tungkal</h6>
                     <small>Jl. H. Asmuni Kel. Tungkal Iv Kota Kec. Tungkal Ilir Kab. Tanjung Jabung Barat</small>
                 </td>
-                {{--  <td width="50px" align="right"><img src="{{ asset('assets/img/logo.png') }}" width="100%"></td>  --}}
+                 <td width="50px" align="right"><img src="{{ asset('assets/img/logo.png') }}" width="100%"></td> 
                 </tr>
             </table>
             <hr>
@@ -144,8 +144,8 @@
             return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
         }
     ?>
-    <p align="right" id="tanggal" class="mb-5">Kuala Tungkal, {{tgl_indo(date('Y-m-d')) }}</p>
-    <p align="right" style="margin-right: 150px">{{ $siswa->kelas->walikelas }}  </p>
+    <p align="left" style="margin-left: 470px" id="tanggal" class="mb-5">Kuala Tungkal, {{tgl_indo(date('Y-m-d')) }}</p>
+    <p align="left" class="mt-2" style="margin-left: 470px">{{ $siswa->kelas->walikelas }}  </p>
 </body>
 
 </html>

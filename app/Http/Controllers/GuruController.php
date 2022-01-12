@@ -51,7 +51,7 @@ class GuruController extends Controller
             'statuskepegawaian'  => 'required',
             'jenjang'            => 'required',
             'jurusan'            => 'required',
-            'sertifikasi'        => 'required',
+            'sertifikasi'        => 'nullable',
             'email'              => 'required|unique:gurus,email', 
         ]);
 
@@ -112,7 +112,7 @@ class GuruController extends Controller
             'statuskepegawaian'  => 'required',
             'jenjang'            => 'required',
             'jurusan'            => 'required',
-            'sertifikasi'        => 'required',
+            'sertifikasi'        => 'nullable',
             'email'              => 'required|unique:gurus,email,'.$id,
             'avatar'             => 'mimes:jpeg,png,jpg',  
         ]);

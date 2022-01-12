@@ -20,7 +20,7 @@
                                 <b>NISN</b> <span class="float-right text-capitalize">{{ $siswa->nisn}}</span>
                             </li>
                             <li class="list-group-item">
-                                <b>NIPD</b> <span class="float-right text-capitalize">{{ $siswa->nipd}}</span>
+                                <b>NIS</b> <span class="float-right text-capitalize">{{ $siswa->nis}}</span>
                             </li>
                             <li class="list-group-item">
                             <b>Tempat Lahir</b> <span class="float-right text-capitalize">{{ $siswa->tempatlahir }}</span>
