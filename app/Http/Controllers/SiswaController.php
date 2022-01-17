@@ -91,6 +91,7 @@ class SiswaController extends Controller
 
 
         $guru = Auth::user()->guru;
+        $murid = Siswa::find($id);
         /**
          *
          * Disini saya cek kondisi dia guru apa bukan kalu guru saya
@@ -98,22 +99,23 @@ class SiswaController extends Controller
          * terus ambil relasi mapelnya
          * kalau dia bukan guru yaudah saya get semua mapel lewat table mapel
          */
-
-         if(auth()->user()->role == 'admin'){
-            $matapelajaran = Mapel::all();
-         }
-        else if($guru->walikelas == 'n'){
-            $matapelajaran = Guru::with(['mapels'])->where('user_id',Auth::user()->id)->first()
-                ->mapels;
-        }else if($guru->walikelas == 'y'){
+        
+        if(auth()->user()->role == 'admin'){
             $matapelajaran = Mapel::all();
         }
+        else if($guru->walikelas == 'y' && $guru->id == $murid->kelas->guru_id){
+            $matapelajaran = Mapel::all();
+        }
+        else {
+            $matapelajaran = Guru::with(['mapels'])->where('user_id',Auth::user()->id)->first()
+            ->mapels;
+        }
         
+        $kelas = Kelas::all();
 
 
 
         $mapelCharts = Mapel::all();
-        $kelas = Kelas::all();
         $siswa = Siswa::find($id);
         $mapel = Mapel::find($id);
         $categories = [];
@@ -130,7 +132,7 @@ class SiswaController extends Controller
         }
 
 
-        return view ('admin.siswa.profil',compact(['siswa','kelas','matapelajaran','categories','data','mapel']));
+        return view ('admin.siswa.profil',compact(['siswa','kelas','matapelajaran','categories','data','mapel','murid']));
     }
 
     /**
