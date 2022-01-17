@@ -41,10 +41,15 @@ class KelasController extends Controller
 
         $request->validate([
             'namakelas' => 'required|unique:kelas,namakelas',
-            'walikelas' =>'required|unique:kelas,walikelas,except,id',]);
+            'guru_id' =>'required|unique:kelas,guru_id,except,id',]);
 
         $kelas = new Kelas();
+        
+        $guru = Guru::find($request->guru_id);
+
+        $guru->walikelas = 'y';       
         $kelas->create($request->all());
+        $guru->update();
         // dd($request->all());
         return back()->withInfo('Kelas sudah ditambahkan');
     }
@@ -84,11 +89,16 @@ class KelasController extends Controller
     {
         $request->validate([
             'namakelas' => 'required|unique:kelas,namakelas,'.$id,
-            'walikelas' =>'required|unique:kelas,walikelas,'.$id,
+            'guru_id' =>'required|unique:kelas,guru_id,'.$id,
             ]);
 
         $kelas = Kelas::find($id);
+        $guru = Guru::find($request->guru_id);
+
+        $guru->walikelas = 'y';       
         $kelas->update($request->all());
+        $guru->update();
+        
         // dd($request->all());
         return back()->withInfo('Kelas sudah diupdate');
     }

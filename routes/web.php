@@ -28,12 +28,15 @@ Auth::routes([
     
         route::post('/siswa/{id}/addnilai','SiswaController@addnilai');
         route::post('/siswa/{id}/updatenilai','SiswaController@updatenilai');
+        // route::post('/siswa/{id}/konfirm','SiswaController@konfirm')->name('konfirm');
         route::delete('/siswa/{id}/{idmapel}/deletenilai','SiswaController@deletenilai');
+        
         route::resource('/kelas','KelasController');
         route::resource('/guru','GuruController');
         route::get('/mapel','MapelController@index')->name('mapel.index');
         route::post('/mapel/store','MapelController@store')->name('mapel.store');
         route::put('/mapel/{id}','MapelController@update')->name('mapel.update');
+
     });
     // admin
 Route::group(['middleware'=>['auth','checkrole:admin,guru']],function(){
@@ -66,6 +69,7 @@ Route::group(['middleware'=>['auth','checkrole:siswa']],function(){
 // guru
 Route::group(['middleware'=>['auth','checkrole:guru']],function(){
     route::get('/profil/guru','GuruController@profilguru')->name('profilguru');
+    route::post('/siswa/{id}/konfirm','SiswaController@konfirm')->name('konfirm');
 });
 
 // dashboard

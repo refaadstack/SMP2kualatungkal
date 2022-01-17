@@ -31,7 +31,7 @@
                         <tr>
                             <td style="width: 20px">{{ $loop->iteration }}</td>
                             <td class="text-capitalize"><a href="{{ route('kelas.show',$kelas->id) }}">{{ $kelas->namakelas }}</a></td>
-                            <td class="text-capitalize">{{ $kelas->walikelas }}</td>
+                            <td class="text-capitalize">{{ $kelas->guru->nama }}</td>
                             <td>
                               <a href="#edit{{$kelas->id}}" class="btn btn-warning btn-sm text-center" data-toggle="modal">Edit</a>
                               <a href="{{ route('kelas.show',$kelas->id) }}" class="btn btn-success btn-sm text-center">Details</a>
@@ -60,11 +60,11 @@
                                           <div class="invalid-feedback">nama kelas tidak boleh kosong!</div>
                                         </div>
                                         <div class="form-group">
-                                          <label for="agama">Pilih Wali kelas</label>
-                                          <select class="form-control" name="walikelas" required>
+                                          <label for="guru_id">Pilih Wali kelas</label>
+                                          <select class="form-control" name="guru_id" required>
                                               <option value="" selected disabled hidden>Pilih Wali kelas</option>
                                               @foreach ($guru as $walikelas)
-                                              <option class="text-capitalize" value="{{ $walikelas->nama}}" @if($kelas->walikelas == $walikelas->nama) selected @endif>{{ $walikelas->nama }}</option>    
+                                              <option class="text-capitalize" value="{{ $walikelas->id}}" @if($kelas->guru_id == $walikelas->id) selected @endif>{{ $walikelas->nama }}</option>    
                                               @endforeach
                                           </select> 
                                           <div class="valid-feedback">Valid.</div>
@@ -133,11 +133,11 @@
                                       <div class="invalid-feedback">namakelas tidak boleh kosong!</div>
                                     </div>      
                                     <div class="form-group">
-                                      <label for="agama">Pilih Wali kelas</label>
-                                      <select class="form-control" name="walikelas" required>
+                                      <label for="guru_id">Pilih Wali kelas</label>
+                                      <select class="form-control" name="guru_id" required>
                                           <option value="" selected disabled hidden>Pilih Wali kelas</option>
                                           @foreach ($guru as $walikelas)
-                                          <option class="text-capitalize" value="{{ $walikelas->nama}}">{{ $walikelas->nama }}</option>    
+                                          <option class="text-capitalize" value="{{ $walikelas->id}}">{{ $walikelas->nama }}</option>    
                                           @endforeach
                                       </select> 
                                       <div class="valid-feedback">Valid.</div>

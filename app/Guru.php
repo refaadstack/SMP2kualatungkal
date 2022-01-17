@@ -24,7 +24,7 @@ class Guru extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'id','user_id');
     }
 
     /**
@@ -42,5 +42,8 @@ class Guru extends Model
             return asset('assets/img/undraw_profile.svg');
         }
         return asset('images/'.$this->avatar);
+    }
+    public function kelas(){
+        return $this->hasOne(Kelas::class);
     }
 }

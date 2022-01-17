@@ -42,6 +42,6 @@ class User extends Authenticatable
         return $this->hasOne('\App\Siswa');
     }
     public function guru(){
-        return $this->hasOne('\App\Guru');
+        return $this->hasOne(Guru::class,'user_id','id');
     }
 }

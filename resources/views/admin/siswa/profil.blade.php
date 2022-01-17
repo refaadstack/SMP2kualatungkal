@@ -106,7 +106,14 @@
                                             @if (auth()->user()->role == 'guru')
                                             <td>
                                                 <a href="#edit{{ $obj->id }}" class="btn btn-warning btn-sm" data-toggle="modal">Edit</a>
+                                                @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id)
+                                                <a href="#konfirmasi{{ $obj->id }}" class="btn btn-success btn-sm" data-toggle="modal">konfirmasi</a>
+
+                                                
+                                                
+                                                @endif
                                             </td>
+                                            
                                             @endif
                                         </tr>
 
@@ -147,6 +154,44 @@
                                             </div>
                                         </div>
                                           {{-- end Modal edit --}}
+                                          {{-- modal konfirmasi --}}
+                                          <div class="modal fade" id="konfirmasi{{ $obj->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">konfirmasi {{ $obj->nama }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="/siswa/{{ $siswa->id }}/konfirm" method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{-- {{method_field('put')}} --}}
+                                                        <div class="form-group" hidden>
+                                                            <label for="mapel">Pilih Mata Pelajaran</label>
+                                                            <select class="form-control" id="mapel" name="mapel" required>
+                                                                <option value="" selected disabled hidden>Pilih Mata Pelajaran</option>
+                                                                @foreach ($matapelajaran as $mp)
+                                                                <option class="text-capitalize text-dark" value="{{ $mp['id'] }}"  @if($obj->id == $mp['id']) selected @endif>{{ $mp['nama'] }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label for="nilai">Nilai</label>
+                                                                <input disabled type="number" min="0" max="100" name="nilai" class="form-control" value="{{ $obj->pivot->nilai }}"/>
+                                                                {{-- <input type="number"  placeholder="Masukkan angka" min="0" max="100"> --}}
+                                                        </div>
+                                                        <input type="text" name="status" hidden value="sudah dikonfirmasi">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          {{-- end konfirmasi --}}
 
                                         {{-- modal Hapus --}}
 

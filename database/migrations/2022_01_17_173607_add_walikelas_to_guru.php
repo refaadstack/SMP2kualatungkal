@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKelasTable extends Migration
+class AddWalikelasToGuru extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateKelasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('namakelas');
-            $table->integer('guru_id');
-            $table->timestamps();
+        Schema::table('gurus', function (Blueprint $table) {
+            $table->string('walikelas')->default('n')->after('user_id');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateKelasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelas');
+        Schema::table('guru', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -80,14 +80,18 @@
                                             <th scope="col">Nilai</th>
                                         </tr>
                                     </thead>
+                                   
+                                        
                                     <tbody>
-                                        @foreach ($siswa->mapel as $obj)    
+                                        @foreach ($siswa->mapel as $obj)   
+                                        @if ($obj->pivot->status =='sudah dikonfirmasi') 
                                         <tr>
                                             <td>{{ $obj->kode }}</td>
                                             <td>{{ $obj->nama }}</td>
-                                            <td>{{  $obj->semester  }}</td>
+                                            <td>{{ $obj->semester  }}</td>
                                             <td>{{ $obj->pivot->nilai }}</td>
                                         </tr>
+                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -98,6 +102,7 @@
     
                             </div>
                         </div>
+                            
                     </div>
                 </div>
                 

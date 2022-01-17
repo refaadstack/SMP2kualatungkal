@@ -65,7 +65,7 @@
                 <th scope="col">Mata Pelajaran</th>
                 <th scope="col">Semester</th>
                 <th scope="col">Nilai</th>
-                <th scope="col">Grade</th>
+                {{-- <th scope="col">Grade</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -80,7 +80,7 @@
                 <td>{{ $obj->nama }}</td>
                 <td>{{ $obj->semester  }}</td>
                 <td>{{ $obj->pivot->nilai }}</td>
-                @if ($obj->pivot->nilai >= 80){
+                {{-- @if ($obj->pivot->nilai >= 80){
                     <td>{{ 'A' }}</td>   
                 }
                 @elseif ($obj->pivot->nilai >= 70){
@@ -92,7 +92,7 @@
                 @else{
                     <td>{{ 'D' }}</td>
                 }                    
-                @endif
+                @endif --}}
                 <?php
                 $total = $total + $obj->pivot->nilai;
                 $hitung++;
@@ -145,7 +145,7 @@
         }
     ?>
     <p align="left" style="margin-left: 470px" id="tanggal" class="mb-5">Kuala Tungkal, {{tgl_indo(date('Y-m-d')) }}</p>
-    <p align="left" class="mt-2" style="margin-left: 470px">{{ $siswa->kelas->walikelas }}  </p>
+    <p align="left" class="mt-2" style="margin-left: 470px">{{ $siswa->kelas->guru->nama }}  </p>
 </body>
 
 </html>

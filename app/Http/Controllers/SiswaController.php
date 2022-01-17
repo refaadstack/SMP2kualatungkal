@@ -89,6 +89,8 @@ class SiswaController extends Controller
     public function profile($id)
     {
 
+
+        $guru = Auth::user()->guru;
         /**
          *
          * Disini saya cek kondisi dia guru apa bukan kalu guru saya
@@ -96,12 +98,17 @@ class SiswaController extends Controller
          * terus ambil relasi mapelnya
          * kalau dia bukan guru yaudah saya get semua mapel lewat table mapel
          */
-        if(Auth::user()->role == 'guru'){
+
+         if(auth()->user()->role == 'admin'){
+            $matapelajaran = Mapel::all();
+         }
+        else if($guru->walikelas == 'n'){
             $matapelajaran = Guru::with(['mapels'])->where('user_id',Auth::user()->id)->first()
                 ->mapels;
-        }else{
+        }else if($guru->walikelas == 'y'){
             $matapelajaran = Mapel::all();
         }
+        
 
 
 
@@ -207,7 +214,7 @@ class SiswaController extends Controller
             return redirect('siswa/'.$idsiswa.'/profile')->withError('Data sudah ada!!');
         }
 
-        $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai,'guru_id' => Auth::user()->id]);
+        $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai,'guru_id' => Auth::user()->guru->id]);
         // ['nilai'=>$request->nilai]);
         return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah ditambah');
     }
@@ -216,6 +223,13 @@ class SiswaController extends Controller
         $siswa->mapel()->updateExistingPivot($request->mapel,['nilai' => $request->nilai]);
         // dd($request->all());
         return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah diupdate!');
+    }
+
+    public function konfirm(Request $request, $idsiswa){
+        $siswa=\App\Siswa::find($idsiswa);
+        $siswa->mapel()->updateExistingPivot($request->mapel,['status' => $request->status]);
+        // dd($request->all());
+        return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah dikonfirmasi');
     }
     public function deletenilai($idsiswa, $idmapel){
         $siswa = Siswa::find($idsiswa);
@@ -245,7 +259,7 @@ class SiswaController extends Controller
         $data =[];
 
         foreach($matapelajaran as $mp){
-            if($siswa->mapel()->wherePivot('mapel_id',$mp->id)->first()){
+            if($siswa->mapel()->wherePivot('mapel_id',$mp->id)->wherePivot('status','sudah dikonfirmasi')->first()){
                 $categories[]= $mp->nama;
                 $data[]= $siswa->mapel()->wherePivot('mapel_id',$mp->id)->first()->pivot->nilai;
             }
