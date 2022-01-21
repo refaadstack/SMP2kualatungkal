@@ -16,11 +16,9 @@
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small text-capitalize">{{ Auth::user()->name }} <span class="badge badge-danger">
-                    @if (auth::user()->guru->walikelas =='y')
-                        Walikelas
-                    @else
+                    
                         {{ auth::user()->role }}
-                    @endif
+                   
                     </span></span>
                     
                 </a>

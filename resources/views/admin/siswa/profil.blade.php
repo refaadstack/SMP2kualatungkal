@@ -84,7 +84,7 @@
                                             <th scope="col">Mata Pelajaran</th>
                                             <th scope="col">Semester</th>
                                             <th scope="col">Nilai</th>
-                                            @if (auth()->user()->role == 'admin'||auth()->user()->role == 'guru')
+                                            @if (auth()->user()->role == 'admin')
                                             <th scope="col">Aksi</th>
                                             @endif
                                         </tr>
@@ -105,7 +105,6 @@
                                             @endif
                                             @if (auth()->user()->role == 'guru')
                                             <td>
-                                                <a href="#edit{{ $obj->id }}" class="btn btn-warning btn-sm" data-toggle="modal">Edit</a>
                                                 @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id)
                                                 <a href="#konfirmasi{{ $obj->id }}" class="btn btn-success btn-sm" data-toggle="modal">konfirmasi</a>
 

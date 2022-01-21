@@ -216,8 +216,8 @@ class SiswaController extends Controller
             return redirect('siswa/'.$idsiswa.'/profile')->withError('Data sudah ada!!');
         }
 
-        $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai,'guru_id' => Auth::user()->guru->id]);
-        // ['nilai'=>$request->nilai]);
+        $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai,'guru_id' => Auth::user()->id]);
+        ['guru_id'=>$request->guru_id];
         return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah ditambah');
     }
     public function updatenilai(Request $request,$idsiswa){

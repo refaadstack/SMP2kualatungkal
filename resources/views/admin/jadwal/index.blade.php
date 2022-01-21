@@ -36,7 +36,7 @@
                         <tr>
                             <td style="width: 20px">{{ $loop->iteration }}</td>
                             <td class="text-capitalize"><a href="{{ route('jadwal.show',$kelas->id) }}">{{ $kelas->namakelas }}</a></td>
-                            <td class="text-capitalize">{{ $kelas->walikelas }}</td>
+                            <td class="text-capitalize">{{ $kelas->guru->nama }}</td>
                             @if (auth()->user()->role == 'admin')
                             <td>
                               {{-- <a href="#edit{{$kelas->id}}" class="btn btn-warning btn-sm text-center" data-toggle="modal">Edit</a> --}}

@@ -65,7 +65,7 @@
                 <th scope="col">Mata Pelajaran</th>
                 <th scope="col">Semester</th>
                 <th scope="col">Nilai</th>
-                {{-- <th scope="col">Grade</th> --}}
+                <th scope="col">Grade</th>
             </tr>
         </thead>
         <tbody>
@@ -80,19 +80,19 @@
                 <td>{{ $obj->nama }}</td>
                 <td>{{ $obj->semester  }}</td>
                 <td>{{ $obj->pivot->nilai }}</td>
-                {{-- @if ($obj->pivot->nilai >= 80){
+                @if ($obj->pivot->nilai >= 90){
                     <td>{{ 'A' }}</td>   
                 }
-                @elseif ($obj->pivot->nilai >= 70){
+                @elseif ($obj->pivot->nilai >= 80){
                     <td>{{ 'B' }}</td>
                 }
-                @elseif ($obj->pivot->nilai >= 60){
+                @elseif ($obj->pivot->nilai >= 70){
                     <td>{{ 'C' }}</td>
                 }
                 @else{
                     <td>{{ 'D' }}</td>
                 }                    
-                @endif --}}
+                @endif 
                 <?php
                 $total = $total + $obj->pivot->nilai;
                 $hitung++;

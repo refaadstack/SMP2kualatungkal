@@ -138,9 +138,11 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
+
         $guru = Guru::find($id);
         $guru->user()->delete();
         $guru->delete();
+        // $guru->delete();
         return back()->withInfo('Data Guru berhasil dihapus');
     }
 
