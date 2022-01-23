@@ -84,7 +84,7 @@
                                             <th scope="col">Mata Pelajaran</th>
                                             <th scope="col">Semester</th>
                                             <th scope="col">Nilai</th>
-                                            @if (auth()->user()->role == 'admin')
+                                            @if (auth()->user()->role == 'admin' || auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id )
                                             <th scope="col">Aksi</th>
                                             @endif
                                         </tr>
@@ -104,14 +104,19 @@
                                             </td>
                                             @endif
                                             @if (auth()->user()->role == 'guru')
-                                            <td>
-                                                @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id)
-                                                <a href="#konfirmasi{{ $obj->id }}" class="btn btn-success btn-sm" data-toggle="modal">konfirmasi</a>
+                                            @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id)
+                                                    <td>
 
+                                                        @if ($obj->pivot->status == 'sudah dikonfirmasi')
+                                                        <small class="badge badge-success">{{$obj->pivot->status  }}</small>
+                                                        @else    
+                                                        <a href="#konfirmasi{{ $obj->id }}" class="btn btn-success btn-sm" data-toggle="modal">konfirmasi</a>
+                                                        @endif 
                                                 
                                                 
-                                                @endif
-                                            </td>
+         
+                                                    </td>
+                                                    @endif
                                             
                                             @endif
                                         </tr>
