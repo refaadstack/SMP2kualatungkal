@@ -11,6 +11,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -228,9 +229,10 @@ class SiswaController extends Controller
     }
 
     public function konfirm(Request $request, $idsiswa){
-        $siswa=\App\Siswa::find($idsiswa);
-        $siswa->mapel()->updateExistingPivot($request->mapel,['status' => $request->status]);
-        // dd($request->all());
+        $siswa=Siswa::find($idsiswa);
+        // $siswa->mapel()->updateExistingPivot($siswa->mapel()->allRelatedIds(), ['status' => $request->status]);
+
+        DB::table('mapel_siswa')->where('siswa_id',$siswa->id)->update(['status'=> 'sudah dikonfirmasi']);
         return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah dikonfirmasi');
     }
     public function deletenilai($idsiswa, $idmapel){

@@ -71,6 +71,7 @@
                                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#tambah">
                                     + Tambah Data
                                 </button>
+                                <a href="{{ route('konfirm',$siswa->id) }}" class="btn btn-warning float-right mr-2">Konfirmasi nilai</a>
                                 @endif
                             </div>
                             <div class="card-body">
@@ -106,15 +107,12 @@
                                             @if (auth()->user()->role == 'guru')
                                             @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id)
                                                     <td>
-
                                                         @if ($obj->pivot->status == 'sudah dikonfirmasi')
-                                                        <small class="badge badge-success">{{$obj->pivot->status  }}</small>
-                                                        @else    
-                                                        <a href="#konfirmasi{{ $obj->id }}" class="btn btn-success btn-sm" data-toggle="modal">konfirmasi</a>
-                                                        @endif 
-                                                
-                                                
-         
+                                                        <small class="badge badge-success">{{ $obj->pivot->status }}</small>
+                                                            
+                                                        @else
+                                                        <small class="badge badge-danger">{{ $obj->pivot->status }}</small>
+                                                        @endif
                                                     </td>
                                                     @endif
                                             
