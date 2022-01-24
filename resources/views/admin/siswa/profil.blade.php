@@ -71,7 +71,9 @@
                                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#tambah">
                                     + Tambah Data
                                 </button>
-                                <a href="{{ route('konfirm',$siswa->id) }}" class="btn btn-warning float-right mr-2">Konfirmasi nilai</a>
+                                    @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id )    
+                                    <a href="{{ route('konfirm',$siswa->id) }}" class="btn btn-warning float-right mr-2">Konfirmasi nilai</a>
+                                    @endif
                                 @endif
                             </div>
                             <div class="card-body">
