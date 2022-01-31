@@ -67,13 +67,18 @@
                         <div class="card">
                             <div class="card-header bg-danger text-white">
                                 Nilai Mata Pelajaran
-                                @if (auth()->user()->role == 'admin'||auth()->user()->role == 'guru')
+                                @if (auth()->user()->role == 'admin')
                                 <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#tambah">
                                     + Tambah Data
                                 </button>
-                                    @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id )    
-                                    <a href="{{ route('konfirm',$siswa->id) }}" class="btn btn-warning float-right mr-2">Konfirmasi nilai</a>
-                                    @endif
+                                @elseif(auth()->user()->role == 'guru')
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#tambah">
+                                    + Tambah Data
+                                </button>
+                                        @if (auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id )    
+                                        <a href="{{ route('konfirm',$siswa->id) }}" class="btn btn-warning float-right mr-2">Konfirmasi nilai</a>
+                                        
+                                        @endif
                                 @endif
                             </div>
                             <div class="card-body">
