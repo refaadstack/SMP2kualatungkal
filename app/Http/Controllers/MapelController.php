@@ -33,7 +33,7 @@ class MapelController extends Controller
     public function update(Request $request, $id){
         $request->validate([
             'kode' =>'required|unique:mapels,kode,'.$id,
-            'nama' => 'required|unique:mapels,nama,'.$id,
+            'nama' => 'required',
             'semester' => 'required',
             ]);
 
