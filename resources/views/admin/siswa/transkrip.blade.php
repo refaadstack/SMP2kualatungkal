@@ -27,14 +27,14 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             @foreach ($semester1 as $key)
+            <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$key->kode}}</td>
             <td>{{$key->nama}}</td>
             <td>{{$key->pivot->nilai}}</td>
-            @endforeach
             </tr>
+            @endforeach
         </tbody>
         <thead>
         <tr>
@@ -42,14 +42,14 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             @foreach ($semester2 as $key)
+            <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$key->kode}}</td>
             <td>{{$key->nama}}</td>
             <td>{{$key->pivot->nilai}}</td>
-            @endforeach
             </tr>
+            @endforeach
         </tbody>
         <thead>
         <tr>
@@ -57,14 +57,14 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             @foreach ($semester3 as $key)
+            <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$key->kode}}</td>
             <td>{{$key->nama}}</td>
             <td>{{$key->pivot->nilai}}</td>
-            @endforeach
             </tr>
+            @endforeach
         </tbody>
         <thead>
         <tr>
@@ -72,14 +72,14 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             @foreach ($semester4 as $key)
+            <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$key->kode}}</td>
             <td>{{$key->nama}}</td>
             <td>{{$key->pivot->nilai}}</td>
-            @endforeach
             </tr>
+            @endforeach
         </tbody>
         <thead>
         <tr>
@@ -87,14 +87,14 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             @foreach ($semester5 as $key)
+            <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$key->kode}}</td>
             <td>{{$key->nama}}</td>
             <td>{{$key->pivot->nilai}}</td>
-            @endforeach
             </tr>
+            @endforeach
         </tbody>
         <thead>
         <tr>
@@ -102,14 +102,14 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
             @foreach ($semester6 as $key)
+            <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$key->kode}}</td>
             <td>{{$key->nama}}</td>
             <td>{{$key->pivot->nilai}}</td>
-            @endforeach
             </tr>
+            @endforeach
         </tbody>
 
     </table>
