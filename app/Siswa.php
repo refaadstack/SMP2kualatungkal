@@ -42,7 +42,7 @@ class Siswa extends Model
         return $this->belongsTo(Kelas::class);
     }
     public function mapel(){
-        return $this->belongsToMany(Mapel::class)->withPivot(['nilai','status'])->withTimestamps();
+        return $this->belongsToMany(Mapel::class)->withPivot(['nilai','status','deskripsi'])->withTimestamps();
 
     }
 

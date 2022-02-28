@@ -28,6 +28,7 @@ Auth::routes([
     
         route::post('/siswa/{id}/addnilai','SiswaController@addnilai');
         route::post('/siswa/{id}/updatenilai','SiswaController@updatenilai');
+        route::get('siswa/{id}/transkrip','SiswaController@transkrip')->name('siswa.transkrip');
         // route::post('/siswa/{id}/konfirm','SiswaController@konfirm')->name('konfirm');
         route::delete('/siswa/{id}/{idmapel}/deletenilai','SiswaController@deletenilai');
         

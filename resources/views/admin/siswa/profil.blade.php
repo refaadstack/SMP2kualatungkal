@@ -84,6 +84,7 @@
                             <div class="card-body">
                                 @if (auth()->user()->role == 'admin')
                                 <span><a href="{{ route('siswa.cetak_rapor_pdf',$siswa->id) }}" target="_blank" class="btn btn-success btn-sm mb-3">Cetak</a></span>
+                                <span><a href="{{ route('siswa.transkrip',$siswa->id) }}" target="_blank" class="btn btn-danger btn-sm mb-3">Transkrip</a></span>
                                 @endif
                                 <table class="table table-bordered table-sm" id="dataTable" style="margin-top: 10px">
                                     <thead>
@@ -92,6 +93,7 @@
                                             <th scope="col">Mata Pelajaran</th>
                                             <th scope="col">Semester</th>
                                             <th scope="col">Nilai</th>
+                                            <th scope="col">Deskripsi</th>
                                             @if (auth()->user()->role == 'admin' || auth()->user()->guru->walikelas == 'y' && auth()->user()->guru->id == $siswa->kelas->guru_id )
                                             <th scope="col">Aksi</th>
                                             @endif
@@ -104,6 +106,7 @@
                                             <td>{{ $obj->nama }}</td>
                                             <td>{{  $obj->semester }}</td>
                                             <td>{{ $obj->pivot->nilai }}</td>
+                                            <td>{{ $obj->pivot->deskripsi }}</td>
                                             @if (auth()->user()->role == 'admin')
                                             <td>
                                                 <a href="#edit{{ $obj->id }}" class="btn btn-warning btn-sm" data-toggle="modal">Edit</a>
@@ -153,7 +156,12 @@
                                                                 <label for="nilai">Nilai</label>
                                                                 <input type="number" min="0" max="100" name="nilai" class="form-control" value="{{ $obj->pivot->nilai }}"/>
                                                                 {{-- <input type="number"  placeholder="Masukkan angka" min="0" max="100"> --}}
-                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label for="deskripsi">Deskripsi</label>
+                                                                <textarea class="form-control" name="deskripsi" rows="3">{{ $obj->pivot->deskripsi }}</textarea>
+                                                                {{-- <input type="number"  placeholder="Masukkan angka" min="0" max="100"> --}}
+                                                        </div>
                                                             <button type="submit" class="btn btn-primary">Submit</button>
                                                         </form>
                                                 </div>
@@ -275,6 +283,11 @@
                                                         <label for="nilai">Nilai</label>
                                                         <input type="number" min="0" max="100" name="nilai" class="form-control"/>
                                                         {{-- <input type="number"  placeholder="Masukkan angka" min="0" max="100"> --}}
+                                                    </div>
+                                                    <div class="form-group">
+                                                                <label for="deskripsi">Deskripsi</label>
+                                                                <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                                                {{-- <input type="number"  placeholder="Masukkan angka" min="0" max="100"> --}}
                                                     </div>
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                   </form>

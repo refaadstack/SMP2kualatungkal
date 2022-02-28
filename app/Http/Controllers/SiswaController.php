@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Psy\Command\WhereamiCommand;
 
 class SiswaController extends Controller
 {
@@ -217,13 +218,13 @@ class SiswaController extends Controller
             return redirect('siswa/'.$idsiswa.'/profile')->withError('Data sudah ada!!');
         }
 
-        $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai,'guru_id' => Auth::user()->id]);
+        $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai ,'deskripsi' =>$request->deskripsi,'guru_id' => Auth::user()->id]);
         ['guru_id'=>$request->guru_id];
         return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah ditambah');
     }
     public function updatenilai(Request $request,$idsiswa){
         $siswa=\App\Siswa::find($idsiswa);
-        $siswa->mapel()->updateExistingPivot($request->mapel,['nilai' => $request->nilai]);
+        $siswa->mapel()->updateExistingPivot($request->mapel,['nilai' => $request->nilai,'deskripsi' =>$request->deskripsi]);
         // dd($request->all());
         return redirect('siswa/'.$idsiswa.'/profile')->withInfo('Data sudah diupdate!');
     }
@@ -270,5 +271,18 @@ class SiswaController extends Controller
         }
 
         return view ('siswa.profilsaya',compact(['siswa','kelas','matapelajaran','categories','data',]));
+    }
+    public function transkrip($id)   {
+
+        $siswa = Siswa::find($id);
+        $semester1 =  $siswa->mapel()->where('semester','1')->get();
+        $semester2 =  $siswa->mapel()->where('semester','2')->get();
+        $semester3 =  $siswa->mapel()->where('semester','3')->get();
+        $semester4 =  $siswa->mapel()->where('semester','4')->get();
+        $semester5 =  $siswa->mapel()->where('semester','5')->get();
+        $semester6 =  $siswa->mapel()->where('semester','6')->get();
+        $semester7 =  $siswa->mapel()->where('semester','7')->get();
+        // dd($semester1);
+        return view('admin.siswa.transkrip',compact('semester1','semester2','siswa','semester3','semester4','semester5','semester6','semester7')); 
     }
 }

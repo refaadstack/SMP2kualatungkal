@@ -61,11 +61,12 @@
 	<table class='table table-bordered'>
 		<thead>
             <tr>
-                <th scope="col">Kode</th>
-                <th scope="col">Mata Pelajaran</th>
-                <th scope="col">Semester</th>
-                <th scope="col">Nilai</th>
-                <th scope="col">Grade</th>
+                <th class="text-center text-wrap mb-1" scope="col">Kode</th>
+                <th class="text-center text-wrap mb-1" scope="col">Mata Pelajaran</th>
+                <th class="text-center text-wrap mb-1" scope="col">Semester</th>
+                <th class="text-center text-wrap mb-1" scope="col">Nilai</th>
+                <th class="text-center text-wrap mb-1" scope="col">Grade</th>
+                <th class="text-center text-wrap mb-1" scope="col">Deskripsi</th>
             </tr>
         </thead>
         <tbody>
@@ -93,6 +94,7 @@
                     <td>{{ 'D' }}</td>
                 }                    
                 @endif 
+                <td width="40%">{{ $obj->pivot->deskripsi }}</td>
                 <?php
                 $total = $total + $obj->pivot->nilai;
                 $hitung++;
@@ -104,7 +106,7 @@
             @if ($result>0)
             {
                 <tr>
-                    <td colspan="3" class="text-center ">Rata-Rata</td>
+                    <td colspan="4" class="text-center ">Rata-Rata</td>
                     <td colspan="2">{{ $format }}</td>
                 </tr>
             }   
